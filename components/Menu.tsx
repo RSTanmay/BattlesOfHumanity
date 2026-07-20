@@ -37,7 +37,7 @@ export default function EraMenu({
       >
         {/* Header */}
         <div className="h-16 flex items-center justify-between px-6 border-b">
-          <h2 className="text-xl font-bold">Battle Eras</h2>
+          <h2 className="text-xl font-bold">Battle Eras 🕰️</h2>
 
           <button
             onClick={onClose}

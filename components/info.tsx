@@ -41,21 +41,21 @@ export default function BattleInfo({ battle }: BattleInfoProps) {
         <div className="space-y-2">
 
   <p>
-    <span className="font-semibold">Armies: </span>
+    <span className="font-semibold">Armies⚔️: </span>
     {battle.armies.sideA}
   </p>
 
-  <p className="text-center font-bold">vs</p>
+  <p className="text-center font-bold">🛡️vs🛡️</p>
 
   <p>{battle.armies.sideB}</p>
 
   <p>
-    <span className="font-semibold">Winner: </span>
+    <span className="font-semibold">Winner 👑: </span>
     {battle.winner}
   </p>
 
   <p>
-    <span className="font-semibold">Deaths: </span>
+    <span className="font-semibold">Deaths ☠️: </span>
     {battle.deaths}
   </p>
 
