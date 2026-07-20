@@ -1,17 +1,18 @@
 "use client";
 
 import { useState } from "react";
-
+import Header from "@/components/Header";
 import BattleImage from "@/components/image";
 import BattleInfo from "@/components/info";
 import Timeline from "@/components/timeline";
 import Navigation from "@/components/navigation";
-
+import Menu from "@/components/Menu";
+import { eras } from "@/components/eras";
 import { battles } from "@/lib/battles";
 
 export default function Home() {
   const [currentBattle, setCurrentBattle] = useState(0);
-
+const [menuOpen, setMenuOpen] = useState(false);
   const battle = battles[currentBattle];
 
  const nextBattle = () => {
@@ -27,7 +28,23 @@ const previousBattle = () => {
 };
 
   return (
-    <main className="h-screen bg-white flex flex-col ">
+    <main className="h-screen bg-white flex flex-col "
+    > <Header onOpenMenu={() => setMenuOpen(true)} />
+
+    <Menu
+      isOpen={menuOpen}
+      onClose={() => setMenuOpen(false)}
+      eras={eras}
+     onSelectEra={(era) => {
+  const index = battles.findIndex(
+    (battle) => battle.year >= era.start && battle.year <= era.end
+  );
+
+  if (index !== -1) {
+    setCurrentBattle(index);
+  }
+}}
+    />
       <section className="flex-1 flex pl-50">
         <BattleImage battle={battle} />
         <BattleInfo battle={battle} />
